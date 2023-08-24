@@ -1,15 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { Box, Flex, Spacer, Link, ChakraProvider } from "@chakra-ui/react";
 import App from "./App";
+import "./components/style.css";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
+
+import AuthContextProvider from "./context/AuthContextProvider";
+import CartContextProvider from "./context/CartContextProvider";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+// import { BsCart4 } from "react-icons/ai";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ChakraProvider>
-    <App />
-  </ChakraProvider>
+  <AuthContextProvider>
+    
+    
+        <ChakraProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ChakraProvider>
+    
+    </CartContextProvider>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function
