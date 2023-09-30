@@ -1,27 +1,34 @@
-import React from "react";
-import { Box, Flex, Link } from "@chakra-ui/react";
+import React from 'react';
+import { Box, Flex, Spacer, Link, IconButton, Input, InputGroup, InputRightElement, Button } from '@chakra-ui/react';
+import { HamburgerIcon, SearchIcon, AddIcon } from '@chakra-ui/icons';
 
 const Navbar = () => {
   return (
-    <Box p={4} bg="teal.500" color="white">
-      <Flex align="center" justify="space-between">
-        <Link href="/" fontSize="xl" fontWeight="bold">
-          Music Store
-        </Link>
-        <nav >
-          <Link href="/" mr={4}>
-            Home
-          </Link>
-          <Link href="/contact" mr={4}>
-            Contact
-          </Link>
-
-          <Link href="/products" mr={4}>
-            Products
-          </Link>
-          <Link href="/about">About</Link>
-          
-        </nav>
+    <Box bg="blue.500" p={4}>
+      <Flex align="center">
+        <IconButton icon={<HamburgerIcon />} aria-label="Menu" color="white" variant="ghost" />
+        
+        <Link ml={4} color="white" fontWeight="bold" fontSize="xl" href="/">Home</Link>
+        <Link ml={4} color="white" fontWeight="bold" fontSize="xl" href="/about">About</Link>
+        <Link ml={4} color="white" fontWeight="bold" fontSize="xl" href="/contact">Contact</Link>
+        
+        <Spacer />
+        
+        <InputGroup mr={4} width="sm">
+          <Input placeholder="Search" />
+          <InputRightElement>
+            <SearchIcon color="gray.300" />
+          </InputRightElement>
+        </InputGroup>
+        
+        <Link color="white" fontWeight="bold" fontSize="xl" href="/categories">Categories</Link>
+        
+        <Button ml={4} colorScheme="teal" leftIcon={<AddIcon />} variant="outline">
+          Add
+        </Button>
+        
+        <Link ml={4} color="white" fontWeight="bold" fontSize="xl" href="/login">Login</Link>
+        <Link ml={4} color="white" fontWeight="bold" fontSize="xl" href="/signup">Signup</Link>
       </Flex>
     </Box>
   );
